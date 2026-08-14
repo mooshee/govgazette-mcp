@@ -3,8 +3,12 @@
   "name": "io.github.mooshee/govgazette",
   "title": "GovGazette",
   "description": "Search U.S. federal contract opportunities and awards, then save searches and track pursuits.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "websiteUrl": "https://govgazette.com/agents?utm_source=github&utm_medium=repository&utm_campaign=govgazette_agent_launch_2026_08",
+  "repository": {
+    "url": "https://github.com/mooshee/govgazette-mcp",
+    "source": "github"
+  },
   "remotes": [
     {
       "type": "streamable-http",
