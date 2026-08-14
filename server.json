@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.mooshee/govgazette",
+  "title": "GovGazette",
+  "description": "Search U.S. federal contract opportunities and awards, then save searches and track pursuits.",
+  "version": "1.1.0",
+  "websiteUrl": "https://govgazette.com/agents?utm_source=github&utm_medium=repository&utm_campaign=govgazette_agent_launch_2026_08",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://govgazette.com/mcp"
+    }
+  ]
+}
