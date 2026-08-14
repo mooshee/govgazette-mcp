@@ -30,7 +30,7 @@ The monitoring tools can create, update, and disable saved searches and tracked 
 
 ## Links
 
-- [Agent documentation](https://govgazette.com/agents?utm_source=github&utm_medium=repository&utm_campaign=govgazette_agent_launch_2026_08)
+- [Agent documentation](https://govgazette.com/agents?utm_source=github_mcp_repo&utm_medium=repository&utm_campaign=govgazette_agent_launch_2026_08)
 - [OpenAPI document](https://govgazette.com/api/agent/openapi.json)
 - [MCP protected resource metadata](https://govgazette.com/.well-known/oauth-protected-resource/mcp)
 - [Official MCP Registry listing](https://registry.modelcontextprotocol.io/?q=io.github.mooshee%2Fgovgazette)
