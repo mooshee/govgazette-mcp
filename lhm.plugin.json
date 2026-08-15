@@ -1,0 +1,16 @@
+{
+  "identifier": "mooshee-govgazette",
+  "name": "GovGazette",
+  "version": "1.2.0",
+  "description": "Research U.S. federal contracts, awards, vendors, changes, exclusions, and source documents.",
+  "author": "Daniel Hallman",
+  "authorUrl": "https://github.com/mooshee",
+  "homepage": "https://govgazette.com/agents?utm_source=lobehub_mcp&utm_medium=directory&utm_campaign=govgazette_agent_launch_2026_08",
+  "cloudEndpoint": "https://govgazette.com/mcp",
+  "tags": [
+    "federal-contracts",
+    "government-contracting",
+    "procurement",
+    "research"
+  ]
+}
