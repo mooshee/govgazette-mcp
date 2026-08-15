@@ -2,7 +2,7 @@
 
 <!-- mcp-name: io.github.mooshee/govgazette -->
 
-GovGazette is a hosted MCP server for U.S. federal contract research and pursuit monitoring.
+GovGazette is a hosted MCP server for U.S. federal contract research and pursuit monitoring. Version 1.2.0 exposes 22 tools.
 
 Connect with Streamable HTTP:
 
@@ -10,15 +10,27 @@ Connect with Streamable HTTP:
 https://govgazette.com/mcp
 ```
 
-The five research tools work without an account:
+Seventeen research tools work without an account:
 
 - `search_opportunities`
+- `resolve_identifier`
+- `lookup_reference`
 - `get_opportunity`
 - `get_opportunity_comps`
+- `search_awards`
+- `get_award`
+- `search_vendors`
 - `get_vendor`
 - `get_vendor_awards`
+- `get_opportunity_changes`
+- `search_exclusions`
+- `get_opportunity_extracted`
+- `search_extracted_facts`
+- `get_opportunity_documents`
+- `find_recompetes`
+- `get_market_summary`
 
-OAuth 2.1 with PKCE unlocks account-scoped monitoring:
+OAuth 2.1 with PKCE unlocks five account-scoped monitoring tools:
 
 - `get_watch_status`
 - `save_opportunity_search`
