@@ -19,12 +19,13 @@ claude plugin install govgazette@govgazette
 
 Version 1.3.0 passed native Claude Code installation and connected to the live MCP server on September 23, 2026. End-to-end model research remains separately tracked. The plugin connects the hosted MCP server and includes `contract-research` and `exclusion-review` skills. This is GovGazette's own repository marketplace, not an Anthropic endorsement or curated marketplace listing.
 
-## ChatGPT, Codex and custom GPTs
+## ChatGPT and Codex plugin
 
 - [Download the portable plugin](https://govgazette.com/integrations/govgazette-plugin.zip): MCP connection, research skills and brand icon. Source: `plugin/`.
-- [Custom GPT Builder package](gpt-builder.md): public Actions schema, instructions, starters and privacy URL. A public GPT Store listing is not yet verified.
 - [ChatGPT connector setup](https://govgazette.com/agents/chatgpt).
 - [Codex setup](https://govgazette.com/agents/codex).
+
+Custom GPT launch work is retired in favor of the plugin. Public OpenAI directory acceptance remains separate from the downloadable package.
 
 ## Try it
 
