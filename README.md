@@ -85,7 +85,15 @@ Leave authentication unset for public research, then enable the connector in you
 <details>
 <summary><strong>Gemini CLI</strong></summary>
 
-Merge this into your Gemini CLI `settings.json`:
+Install the extension:
+
+```sh
+gemini extensions install https://github.com/mooshee/govgazette-mcp
+```
+
+It connects GovGazette and includes guidance for research with official sources. Restart Gemini CLI after installation.
+
+Or merge this into your Gemini CLI `settings.json`:
 
 ```json
 {

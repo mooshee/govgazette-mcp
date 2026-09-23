@@ -1,0 +1,11 @@
+{
+  "name": "govgazette",
+  "version": "1.3.0",
+  "description": "Find federal opportunities, research awards and vendors, and review exclusion evidence with official sources.",
+  "mcpServers": {
+    "govgazette": {
+      "httpUrl": "https://govgazette.com/mcp"
+    }
+  },
+  "contextFileName": "research-instructions.md"
+}

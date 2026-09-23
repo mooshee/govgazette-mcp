@@ -1,7 +1,7 @@
 {
   "name": "govgazette",
   "version": "1.3.0",
-  "description": "Federal contract research with official sources",
+  "description": "Find federal opportunities, research awards and vendors, and review exclusion evidence with official sources.",
   "author": {
     "name": "GovGazette"
   },
@@ -11,5 +11,8 @@
     "government-contracts",
     "procurement",
     "research"
-  ]
+  ],
+  "logo": "plugin/assets/icon.png",
+  "skills": "./plugin/skills/",
+  "mcpServers": "./plugin/mcp.json"
 }
