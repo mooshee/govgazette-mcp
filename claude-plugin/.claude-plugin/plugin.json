@@ -1,0 +1,15 @@
+{
+  "name": "govgazette",
+  "version": "1.3.0",
+  "description": "Federal contract research with official sources",
+  "author": {
+    "name": "GovGazette"
+  },
+  "homepage": "https://govgazette.com/agents/claude-code",
+  "repository": "https://github.com/mooshee/govgazette-mcp",
+  "keywords": [
+    "government-contracts",
+    "procurement",
+    "research"
+  ]
+}

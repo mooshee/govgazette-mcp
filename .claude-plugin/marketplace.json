@@ -1,0 +1,16 @@
+{
+  "name": "govgazette",
+  "owner": {
+    "name": "GovGazette"
+  },
+  "plugins": [
+    {
+      "name": "govgazette",
+      "source": "./claude-plugin",
+      "description": "Federal contract research with official sources"
+    }
+  ],
+  "metadata": {
+    "description": "GovGazette plugins for federal contract research with official sources."
+  }
+}

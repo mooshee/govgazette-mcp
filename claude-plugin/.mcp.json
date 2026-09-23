@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "govgazette": {
+      "type": "http",
+      "url": "https://govgazette.com/mcp"
+    }
+  }
+}
