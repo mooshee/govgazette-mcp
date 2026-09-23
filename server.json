@@ -2,9 +2,9 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.mooshee/govgazette",
   "title": "GovGazette",
-  "description": "Research U.S. federal contracts, awards, vendors, changes, exclusions, and source documents.",
-  "version": "1.2.0",
-  "websiteUrl": "https://govgazette.com/agents?utm_source=mcp_registry&utm_medium=directory&utm_campaign=govgazette_agent_launch_2026_08",
+  "description": "Find federal opportunities, research awards and vendors, and review dated exclusion evidence.",
+  "version": "1.3.0",
+  "websiteUrl": "https://govgazette.com/agents",
   "repository": {
     "url": "https://github.com/mooshee/govgazette-mcp",
     "source": "github"

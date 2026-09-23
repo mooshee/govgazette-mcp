@@ -1,0 +1,38 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "govgazette",
+  "version": "1.3.0",
+  "description": "Source-backed federal opportunity, award, vendor and exclusion research.",
+  "author": {
+    "name": "GovGazette",
+    "url": "https://govgazette.com"
+  },
+  "homepage": "https://govgazette.com/agents",
+  "keywords": [
+    "government-contracts",
+    "research",
+    "procurement"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "GovGazette",
+        "shortDescription": "Federal contract research with sources",
+        "developerName": "GovGazette",
+        "category": "Productivity",
+        "capabilities": [
+          "Read"
+        ],
+        "websiteURL": "https://govgazette.com",
+        "privacyPolicyURL": "https://govgazette.com/privacy",
+        "brandColor": "#173e2d",
+        "defaultPrompt": [
+          "Find software opportunities and build a cited research brief."
+        ],
+        "longDescription": "Find federal opportunities, build cited research briefs, research vendors and awards, and review exclusion evidence. Public research needs no GovGazette account.",
+        "composerIcon": "./assets/icon.png"
+      }
+    }
+  },
+  "repository": "https://github.com/mooshee/govgazette-mcp"
+}
