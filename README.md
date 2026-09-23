@@ -4,6 +4,8 @@
 
 Find federal opportunities, research awards and vendors, and review exclusion evidence in your AI assistant. Public research is free and needs no GovGazette account or API key.
 
+[Watch a short ChatGPT demo](media/chatgpt-demo.mp4) showing source-backed opportunity research.
+
 ## Set up your agent
 
 Choose your agent below. For clients that ask for a server address, use **https://govgazette.com/mcp** with **Streamable HTTP** and **no authentication**.
