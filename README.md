@@ -110,6 +110,31 @@ Or merge this into your Gemini CLI `settings.json`:
 </details>
 
 <details>
+<summary><strong>Hermes Agent</strong></summary>
+
+Install the portable plugin from this repository's `plugin/` directory:
+
+```sh
+hermes plugins install mooshee/govgazette-mcp/plugin --no-enable
+hermes plugins enable govgazette
+hermes mcp test govgazette
+```
+
+Or connect just the MCP tools by merging this into `~/.hermes/config.yaml`:
+
+```yaml
+mcp_servers:
+  govgazette:
+    url: "https://govgazette.com/mcp"
+```
+
+Use one method to avoid registering the same server twice. Public research needs no GovGazette key.
+
+[Provider setup guide](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/)
+
+</details>
+
+<details>
 <summary><strong>Cursor</strong></summary>
 
 Merge this into `.cursor/mcp.json`, then enable the server:
