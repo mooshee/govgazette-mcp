@@ -1,6 +1,7 @@
 # GovGazette: federal contract research with sources
 
 [![GovGazette MCP server quality and maintenance on Glama](https://glama.ai/mcp/servers/mooshee/govgazette-mcp/badges/score.svg)](https://glama.ai/mcp/servers/mooshee/govgazette-mcp)
+[![GovGazette on Smithery](https://smithery.ai/badge/daniel-hallman/govgazette)](https://smithery.ai/servers/daniel-hallman/govgazette)
 
 <!-- mcp-name: io.github.mooshee/govgazette -->
 
