@@ -13,6 +13,8 @@ Find federal opportunities, research awards and vendors, and review exclusion ev
 
 Choose your agent below. For clients that ask for a server address, use **https://govgazette.com/mcp** with **Streamable HTTP** and **no authentication**.
 
+Current tools and schemas: [live MCP catalog](https://govgazette.com/api/v1/mcp/tools.json).
+
 When editing a configuration file, merge the GovGazette entry with your existing settings. Reload the client and enable its tools for your conversation.
 
 <details>
