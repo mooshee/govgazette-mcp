@@ -1,0 +1,575 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "name_for_human": "GovGazette",
+  "namespace": "GovGazette",
+  "description_for_human": "Federal contract research with official sources.",
+  "description_for_model": "Search and inspect federal opportunities, awards, vendors, and dated exclusions. Use for source-backed contracting research; report source dates and avoid eligibility or incumbent conclusions.",
+  "privacy_policy_url": "https://govgazette.com/privacy",
+  "legal_info_url": "https://govgazette.com/terms",
+  "runtimes": [
+    {
+      "type": "RemoteMCPServer",
+      "auth": {
+        "type": "None"
+      },
+      "spec": {
+        "url": "https://govgazette.com/mcp",
+        "mcp_tool_description": {
+          "tools": [
+            {
+              "name": "check_exclusions",
+              "title": "Check possible exclusion matches",
+              "description": "Check up to 20 identities against a dated active SAM snapshot. Exact identifier matches and name-only possible matches remain distinct. No match is not clearance.",
+              "inputSchema": {
+                "$defs": {
+                  "Identity": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "cage": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "npi": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "uei": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "additionalProperties": false,
+                "properties": {
+                  "generation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "identities": {
+                    "items": {
+                      "$ref": "#/$defs/Identity"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "identities"
+                ],
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "detail",
+              "title": "Read a federal record",
+              "description": "Retrieve a known public identifier. Supply generation from search for a consistent result.",
+              "inputSchema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "properties": {
+                  "collection": {
+                    "type": "string"
+                  },
+                  "generation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "collection",
+                  "id"
+                ],
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "document",
+              "title": "Read source text",
+              "description": "Read bounded official record text by known identifier. Does not fetch arbitrary URLs or paths.",
+              "inputSchema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "properties": {
+                  "collection": {
+                    "type": "string"
+                  },
+                  "generation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "length": {
+                    "format": "uint64",
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "offset": {
+                    "format": "uint64",
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "collection",
+                  "id"
+                ],
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "exclusion_changes",
+              "title": "Review exclusion changes",
+              "description": "Compare two retained snapshots. No longer observed does not mean reinstated; enrichment-only changes are excluded.",
+              "inputSchema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "additionalProperties": false,
+                "properties": {
+                  "cursor": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "from_generation": {
+                    "type": "string"
+                  },
+                  "limit": {
+                    "format": "uint",
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "to_generation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "from_generation"
+                ],
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "exclusion_context",
+              "title": "Read exclusion evidence",
+              "description": "Retrieve an exclusion with agency explanation, named restriction references, source evidence and supported business links.",
+              "inputSchema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "additionalProperties": false,
+                "properties": {
+                  "generation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "explain_match",
+              "title": "Explain a vendor match",
+              "description": "Explain deterministic primary NAICS overlap between a registered vendor and opportunity. Not an eligibility determination.",
+              "inputSchema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "properties": {
+                  "opportunity_id": {
+                    "type": "string"
+                  },
+                  "vendor_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "vendor_id",
+                  "opportunity_id"
+                ],
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "freshness",
+              "title": "Check source dates",
+              "description": "Report actual source dates, coverage, record counts and SHA256 provenance.",
+              "inputSchema": {
+                "properties": {},
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "research_opportunity",
+              "title": "Research an opportunity",
+              "description": "Build a cited research brief with retained notice requirements, exact award-number candidates and same-industry comparisons. Does not infer an incumbent or eligibility.",
+              "inputSchema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "properties": {
+                  "generation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "search",
+              "title": "Search federal records",
+              "description": "Search public opportunities, vendors, awards, exclusions, or reference collections. Results include provenance and a generation-pinned cursor.",
+              "inputSchema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "properties": {
+                  "collection": {
+                    "type": "string"
+                  },
+                  "cursor": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "limit": {
+                    "format": "uint",
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "q": {
+                    "default": "",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "collection"
+                ],
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "search_exclusions",
+              "title": "Search exclusions",
+              "description": "Filter active exclusion records by agency, program, classification, geography and dates. Preserve the returned cursor and generation.",
+              "inputSchema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "additionalProperties": false,
+                "properties": {
+                  "agency": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "classification": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "country": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "cursor": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "effective_from": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "effective_to": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "generation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "limit": {
+                    "format": "uint",
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "program": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "q": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "state": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            },
+            {
+              "name": "search_opportunities",
+              "title": "Find federal opportunities",
+              "description": "Find official opportunity records by keywords, industry, set-aside, state, agency and source status. Active does not imply the deadline is open.",
+              "inputSchema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "additionalProperties": false,
+                "properties": {
+                  "active": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "after": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "agency": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "generation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "limit": {
+                    "format": "uint",
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "naics": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "q": {
+                    "default": "",
+                    "type": "string"
+                  },
+                  "set_aside": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "state": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": true
+              }
+            }
+          ]
+        }
+      },
+      "run_for_functions": [
+        "check_exclusions",
+        "detail",
+        "document",
+        "exclusion_changes",
+        "exclusion_context",
+        "explain_match",
+        "freshness",
+        "research_opportunity",
+        "search",
+        "search_exclusions",
+        "search_opportunities"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "check_exclusions",
+      "description": "Check up to 20 identities against a dated active SAM snapshot. Exact identifier matches and name-only possible matches remain distinct. No match is not clearance."
+    },
+    {
+      "name": "detail",
+      "description": "Retrieve a known public identifier. Supply generation from search for a consistent result."
+    },
+    {
+      "name": "document",
+      "description": "Read bounded official record text by known identifier. Does not fetch arbitrary URLs or paths."
+    },
+    {
+      "name": "exclusion_changes",
+      "description": "Compare two retained snapshots. No longer observed does not mean reinstated; enrichment-only changes are excluded."
+    },
+    {
+      "name": "exclusion_context",
+      "description": "Retrieve an exclusion with agency explanation, named restriction references, source evidence and supported business links."
+    },
+    {
+      "name": "explain_match",
+      "description": "Explain deterministic primary NAICS overlap between a registered vendor and opportunity. Not an eligibility determination."
+    },
+    {
+      "name": "freshness",
+      "description": "Report actual source dates, coverage, record counts and SHA256 provenance."
+    },
+    {
+      "name": "research_opportunity",
+      "description": "Build a cited research brief with retained notice requirements, exact award-number candidates and same-industry comparisons. Does not infer an incumbent or eligibility."
+    },
+    {
+      "name": "search",
+      "description": "Search public opportunities, vendors, awards, exclusions, or reference collections. Results include provenance and a generation-pinned cursor."
+    },
+    {
+      "name": "search_exclusions",
+      "description": "Filter active exclusion records by agency, program, classification, geography and dates. Preserve the returned cursor and generation."
+    },
+    {
+      "name": "search_opportunities",
+      "description": "Find official opportunity records by keywords, industry, set-aside, state, agency and source status. Active does not imply the deadline is open."
+    }
+  ]
+}

@@ -196,6 +196,24 @@ Merge this into `.vscode/mcp.json`, start the server, and enable its tools in ag
 </details>
 
 <details>
+<summary><strong>Gemini Spark (web and mobile)</strong></summary>
+
+With a personal Google account in the US, open Gemini Spark → Connected Apps → Custom apps and add `https://govgazette.com/mcp`. Then mention `@GovGazette` in a prompt. Google currently supports custom app setup on the web; the connection also works in its mobile app.
+
+[Google setup guide](https://support.google.com/gemini/answer/17209137)
+
+</details>
+
+<details>
+<summary><strong>Microsoft 365 Copilot</strong></summary>
+
+The [declarative agent package](microsoft-365/) connects to GovGazette's public research tools. A Microsoft 365 tenant with custom app upload and Copilot access can validate and sideload it.
+
+[Microsoft publishing guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/publish)
+
+</details>
+
+<details>
 <summary><strong>Windsurf / Cascade</strong></summary>
 
 Open the MCP configuration from Cascade and merge this server:
