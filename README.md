@@ -394,4 +394,4 @@ You can also ask your agent to research a vendor by its Unique Entity Identifier
 
 Check the official source and its date. An active notice can have a deadline that has passed. Similar awards do not establish an incumbent, and an exclusion search does not determine eligibility. Consult official attachments for complete solicitation requirements. GovGazette is independent of the U.S. government.
 
-[Website](https://govgazette.com) · [API reference](https://govgazette.com/api/v1/openapi.json) · [Agent guide](https://govgazette.com/llms.txt) · [Privacy](https://govgazette.com/privacy) · [MCP Registry](https://registry.modelcontextprotocol.io/?q=io.github.mooshee%2Fgovgazette)
+[Website](https://govgazette.com) · [API reference](https://govgazette.com/api/v1/openapi.json) · [Agent guide](https://govgazette.com/llms.txt) · [Privacy](https://govgazette.com/privacy) · [Support](https://github.com/mooshee/govgazette-mcp/issues) · [MCP Registry](https://registry.modelcontextprotocol.io/?q=io.github.mooshee%2Fgovgazette)

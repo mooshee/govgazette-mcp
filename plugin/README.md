@@ -11,3 +11,5 @@ Start with a small result set. Offer one useful next step: inspect a record, com
 Includes contract-research and exclusion-review skills. Public reads are anonymous; no workspace credentials are included. This download does not imply approval in a provider-curated marketplace.
 
 Install the Claude Code version with `claude plugin marketplace add mooshee/govgazette-mcp` and `claude plugin install govgazette@govgazette`. The portable version uses root `plugin.json`, `mcp.json` and `skills/`; follow your host’s plugin installation flow.
+
+[Privacy policy](https://govgazette.com/privacy) · [Support](https://github.com/mooshee/govgazette-mcp/issues)
