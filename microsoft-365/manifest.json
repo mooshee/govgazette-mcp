@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.30/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.30",
+  "version": "1.3.0",
+  "id": "e099907e-fa52-5a7e-9b9e-1d5173e4fcba",
+  "developer": {
+    "name": "Daniel Hallman",
+    "websiteUrl": "https://govgazette.com",
+    "privacyUrl": "https://govgazette.com/privacy",
+    "termsOfUseUrl": "https://govgazette.com/terms"
+  },
+  "name": {
+    "short": "GovGazette",
+    "full": "GovGazette Contract Research"
+  },
+  "description": {
+    "short": "Research federal contracts with source links.",
+    "full": "Search federal opportunities, research awards and vendors, and review dated exclusion evidence with links to official sources."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#173E2D",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "govgazette",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  }
+}
