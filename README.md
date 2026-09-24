@@ -112,6 +112,24 @@ Or merge this into your Gemini CLI `settings.json`:
 </details>
 
 <details>
+<summary><strong>Antigravity CLI / IDE</strong></summary>
+
+Clone this repository and install the [Antigravity plugin](antigravity-plugin/):
+
+```sh
+git clone https://github.com/mooshee/govgazette-mcp.git
+cd govgazette-mcp
+agy plugin install ./antigravity-plugin
+agy plugin list
+```
+
+The plugin connects GovGazette and includes contract research and exclusion review skills. For Antigravity 2.0 or the standalone IDE, place `antigravity-plugin/` at `.agents/plugins/govgazette/` in a workspace or `~/.gemini/config/plugins/govgazette/` globally. Public research needs no account or key.
+
+[Provider setup guide](https://www.antigravity.google/docs/plugins/)
+
+</details>
+
+<details>
 <summary><strong>Hermes Agent</strong></summary>
 
 Install the portable plugin from this repository's `plugin/` directory:
