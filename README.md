@@ -1,5 +1,7 @@
 # GovGazette: federal contract research with sources
 
+[![GovGazette MCP server quality and maintenance on Glama](https://glama.ai/mcp/servers/mooshee/govgazette-mcp/badges/score.svg)](https://glama.ai/mcp/servers/mooshee/govgazette-mcp)
+
 <!-- mcp-name: io.github.mooshee/govgazette -->
 
 Find federal opportunities, research awards and vendors, and review exclusion evidence in your AI assistant. Public research is free and needs no GovGazette account or API key.
