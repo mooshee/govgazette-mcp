@@ -214,6 +214,21 @@ The [declarative agent package](microsoft-365/) connects to GovGazette's public 
 </details>
 
 <details>
+<summary><strong>Devin CLI / Desktop / cloud</strong></summary>
+
+Install the [portable GovGazette plugin](plugin/) from this repository:
+
+```sh
+devin plugins install mooshee/govgazette-mcp#plugin
+```
+
+The plugin includes the public MCP connection and contract research and exclusion review skills. After installation, connect GovGazette in **Customize → MCPs** if Devin asks, then check its tools in a new session. A Devin account is required to manage CLI plugins.
+
+[Plugin setup guide](https://docs.devin.ai/cli/extensibility/plugins/overview) · [MCP connection guide](https://docs.devin.ai/work-with-devin/mcp)
+
+</details>
+
+<details>
 <summary><strong>Windsurf / Cascade</strong></summary>
 
 Open the MCP configuration from Cascade and merge this server:
