@@ -7,6 +7,8 @@ description: Find federal contract opportunities and build a cited research brie
 
 Author: Daniel Hallman
 
+Requires the GovGazette remote MCP server at `https://govgazette.com/mcp` using Streamable HTTP. Public research needs no authentication. If the host has not connected that server or its tools are unavailable, tell the user to add it before continuing; installing this skill alone does not connect the server.
+
 Use the GovGazette MCP server. For a filtered opportunity search, call `search_opportunities` with the user's keywords and supported industry, agency, state or set-aside filters. Start with at most five results. Read `freshness` for date-sensitive questions. Keep the returned generation and continuation fields when paging.
 
 Call `research_opportunity` for a chosen notice. Report the opportunity title, agency, official response date when present, requirements from retained text, and a short evidence-based next step. Cite the GovGazette record and official source, including source dates. An active source status does not prove the response window is open.
