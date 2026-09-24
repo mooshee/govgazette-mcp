@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "govgazette",
+  "description": "Research federal opportunities, awards, vendors, and exclusions with cited sources."
+}
