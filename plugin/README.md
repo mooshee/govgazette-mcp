@@ -12,4 +12,4 @@ Includes contract-research and exclusion-review skills. Public reads are anonymo
 
 Install the Claude Code version with `claude plugin marketplace add mooshee/govgazette-mcp` and `claude plugin install govgazette@govgazette`. The portable version uses root `plugin.json`, `mcp.json` and `skills/`; follow your host’s plugin installation flow.
 
-[Privacy policy](https://govgazette.com/privacy) · [Support](https://github.com/mooshee/govgazette-mcp/issues)
+[Privacy policy](https://govgazette.com/privacy) · [Support](https://github.com/mooshee/govgazette-mcp/issues) · [License](LICENSE)
