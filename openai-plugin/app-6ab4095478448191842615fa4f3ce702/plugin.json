@@ -1,0 +1,84 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "app-6ab4095478448191842615fa4f3ce702",
+  "version": "1.3.1",
+  "description": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
+  "author": { "name": "DANIEL JOSEPH HALLMAN", "url": "https://govgazette.com" },
+  "homepage": "https://govgazette.com",
+  "repository": "https://github.com/mooshee/govgazette-mcp",
+  "keywords": ["government-contracts", "procurement", "research"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "GovGazette",
+        "shortDescription": "Research federal contracts",
+        "longDescription": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
+        "developerName": "DANIEL JOSEPH HALLMAN",
+        "category": "Business & Operations",
+        "capabilities": [],
+        "websiteURL": "https://govgazette.com",
+        "supportURL": "https://github.com/mooshee/govgazette-mcp/issues",
+        "privacyPolicyURL": "https://govgazette.com/privacy",
+        "termsOfServiceURL": "https://govgazette.com/terms",
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find federal software opportunities by industry code; verify each result against the returned record and disclose source dates.",
+              "prompt": "Find federal software contracting opportunities in NAICS 541512. Show official identifiers, source dates, and source links.",
+              "tools_triggered": "search_opportunities",
+              "expected_behavior": "Use search_opportunities with NAICS 541512 and a bounded result limit. Return only matching records with their identifiers, retained source dates and GovGazette or issuing-source links. Disclose dated or incomplete coverage; do not call an older snapshot live data."
+            },
+            {
+              "description": "Build a sourced brief for one opportunity returned by search; never invent a notice ID or missing deadline.",
+              "prompt": "Find a federal software opportunity and build a brief for one result. Include its identifier, issuing agency, source date, deadlines if present, and official notice link.",
+              "tools_triggered": "search_opportunities, research_opportunity",
+              "expected_behavior": "Use search_opportunities, then research_opportunity with the exact ID and generation returned by that search. Ground the brief in the returned notice and award evidence, include source links and dates, and label missing fields or expired deadlines without inferring eligibility."
+            },
+            {
+              "description": "Research one retained IT award and its awardee; explain its industry classification with linked evidence.",
+              "prompt": "Find a federal IT award in GovGazette. Identify the awardee, show the award source and date, and explain any NAICS code with its label and linked reference page.",
+              "tools_triggered": "search, detail",
+              "expected_behavior": "Use search on awards, then detail with the exact returned award ID and generation. Use search or detail on vendors and naics only with returned or verified identifiers and preserve generation. Show the awardee, dated source links, and the classification label; disclose unresolved vendor joins or missing fields."
+            },
+            {
+              "description": "Check exclusion evidence by name; distinguish a possible match or no match from a legal clearance decision.",
+              "prompt": "Check the name The Boeing Company against the latest available GovGazette exclusions snapshot. Explain any match level, source date, and what a no-match result does and does not mean.",
+              "tools_triggered": "check_exclusions",
+              "expected_behavior": "Use check_exclusions with an identities array containing an identity object whose name is The Boeing Company. Report its returned match level, retained snapshot date and limitations. A name-only match needs identifier verification, and no match is not clearance or a determination of contracting eligibility."
+            },
+            {
+              "description": "Report actual retained source freshness and coverage for three collections rather than assuming current government data.",
+              "prompt": "What are the source dates and coverage limits for GovGazette opportunities, awards, and exclusions? Tell me which snapshots are dated or incomplete.",
+              "tools_triggered": "freshness",
+              "expected_behavior": "Use freshness and report the returned dates, coverage notes and generation for opportunities, awards and exclusions. Preserve reported stale or partial coverage and explain that retained snapshots can differ from current official records."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Do not invoke GovGazette tools or claim submission: filing bids and uploading proposal documents are unsupported. Explain that the user must use the issuing agency's submission process.",
+              "prompt": "Submit my proposal to SAM.gov and tell the contracting officer that our bid is filed."
+            },
+            {
+              "description": "Do not invoke GovGazette tools or request credentials: vendor registration and issuing a new UEI are unsupported. Explain that registration must be completed through the official service.",
+              "prompt": "Register my company in SAM.gov and issue us a new UEI."
+            },
+            {
+              "description": "Do not invoke GovGazette tools or claim an award: executing contracts, issuing purchase orders and obligating funds are unsupported. Explain this limit without attempting a government transaction.",
+              "prompt": "Award a federal contract to my company and issue the purchase order now."
+            }
+          ]
+        },
+        "demo_recording_url": "https://raw.githubusercontent.com/mooshee/govgazette-mcp/main/media/chatgpt-demo.mp4",
+        "commerce": false,
+        "commerce_description": "This plugin provides federal contracting research. It does not sell products, process payments, submit bids or award contracts."
+      },
+      "publication": {
+        "release_notes": "Replaces the saved_searches operation multiplexer with six individually declared tools, each with its own input schema and safety annotations. All 17 model-callable operations are exposed for review. Public research and source-date coverage warnings remain available without an account."
+      }
+    }
+  }
+}

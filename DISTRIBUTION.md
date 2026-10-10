@@ -9,7 +9,7 @@ Status checked October 10, 2026. A package, submission, approval, public listing
 | Route | Evidence and scope |
 | --- | --- |
 | Portable plugin and host setup | [Public source package](plugin/) and [host recipes](README.md). Public research is free over Streamable HTTP; no account or key is required. |
-| MCP Registry | [Registry entry](https://registry.modelcontextprotocol.io/?q=io.github.mooshee%2Fgovgazette). Package releases use the existing publisher workflow; verify the registry version separately from Git tags. |
+| MCP Registry | Version 1.3.1 is public, active and marked latest in the [registry API](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.mooshee%2Fgovgazette/versions/1.3.1), with publication time October 10 at 12:05:47 UTC. This matches the successful [publisher run](https://github.com/mooshee/govgazette-mcp/actions/runs/38050715138). Keep the existing `io.github.mooshee/govgazette` identity; do not republish this version. |
 | Glama | [GovGazette page](https://glama.ai/mcp/servers/mooshee/govgazette-mcp) is publicly visible. A directory page does not prove every native host has completed a research task. |
 | Smithery | [Existing GovGazette page](https://smithery.ai/servers/daniel-hallman/govgazette). A prior scan may lag the live catalog; check its tool inventory before relying on it. |
 | ClawHub | Existing [contract research](https://clawhub.ai/mooshee/skills/govgazette-contract-research) and [exclusion review](https://clawhub.ai/mooshee/skills/govgazette-exclusion-review) skills. Installing a skill alone does not connect MCP. |
@@ -18,11 +18,13 @@ Status checked October 10, 2026. A package, submission, approval, public listing
 
 ## ChatGPT package and review
 
-The package includes `plugin.json`, one remote `mcp.json`, three skills and full-resolution icons. Every model-callable MCP operation is exposed individually with its description, input schema and annotations. Public research needs no credentials. Private saved-search operations are separate and require authenticated workspace access and explicit user intent.
+The [portable package](plugin/) includes `plugin.json`, one remote `mcp.json`, three skills and full-resolution icons. The separate [OpenAI review package](openai-plugin/) preserves the existing app identity and downloaded release layout: `plugin.json`, `mcp.json` and its icon. It includes no skills or private credentials. Every model-callable MCP operation is exposed individually by the hosted catalog with its description, schemas and annotations. Public research needs no credentials. Private saved-search operations are separate and require authenticated access and explicit user intent.
 
 OpenAI's [ZIP submission guide](https://developers.openai.com/plugins/deploy/submission) separates uploaded metadata/skills from hosted MCP scans, review submission and publication. The [package field reference](https://developers.openai.com/plugins/build/plugins) defines listing, review and onboarding fields. Hosted tool updates are automatically checked after initial publication; this does not make an unapproved package public.
 
 ## Acceptance
+
+See [verified client behavior](NATIVE_CLIENT_VERIFICATION.md) for the October 10 native Codex, current-protocol SDK and private OAuth QA results and their limits. Other host setup recipes remain unverified task paths unless separately observed.
 
 Connect in a fresh host context, discover tools, search a small result set, research a returned record with its exact ID and generation, and follow an official source link. Check actual deadlines rather than treating an active flag as an open response window. Cite source dates. A successful tool execution is not proof that another user's client received or used its result.
 
