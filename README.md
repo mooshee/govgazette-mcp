@@ -15,6 +15,10 @@ Choose your agent below. For clients that ask for a server address, use **https:
 
 Current tools and schemas: [live MCP catalog](https://govgazette.com/api/v1/mcp/tools.json).
 
+The portable [plugin package](plugin/) includes a guided first research workflow, contract research and exclusion review. Its 17 operations are individually described in the live catalog. Public research works without an account; private saved-search operations require a separate authenticated workspace.
+
+Public setup recipes are not proof of a provider-curated listing. See [distribution and review status](DISTRIBUTION.md) for verified routes and the ChatGPT publication boundary.
+
 When editing a configuration file, merge the GovGazette entry with your existing settings. Reload the client and enable its tools for your conversation.
 
 <details>
@@ -77,7 +81,7 @@ Developer-mode access depends on your plan and workspace settings.
 <details>
 <summary><strong>Claude / Cowork / Desktop</strong></summary>
 
-Open **Customize → Connectors**, select **+ → Add custom connector**, name it named **GovGazette**, and use:
+Open **Customize → Connectors**, select **+ → Add custom connector**, name it **GovGazette**, and use:
 
 ```text
 https://govgazette.com/mcp
