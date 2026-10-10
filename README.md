@@ -19,6 +19,8 @@ The portable [plugin package](plugin/) includes a guided first research workflow
 
 Public setup recipes are not proof of a provider-curated listing. See [distribution and review status](DISTRIBUTION.md) for verified routes and the ChatGPT publication boundary.
 
+The [client verification record](NATIVE_CLIENT_VERIFICATION.md) distinguishes observed native research from setup recipes and current-protocol SDK checks. The [OpenAI review package](openai-plugin/) preserves the existing app identity separately from the portable package.
+
 When editing a configuration file, merge the GovGazette entry with your existing settings. Reload the client and enable its tools for your conversation.
 
 <details>
