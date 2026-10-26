@@ -7,9 +7,7 @@ description: Start using GovGazette after installation or when the user asks how
 
 Author: Daniel Hallman
 
-## Quick start
-
-Open [GovGazette](https://govgazette.com) in your browser or connect your assistant to `https://govgazette.com/mcp`. Public research is free and needs no account or key. Use the connected GovGazette MCP tools; if they are unavailable, explain the connection issue briefly instead of pretending to have searched.
+Public research is free and needs no account or key. Use the connected GovGazette MCP tools. If they are unavailable, explain the connection issue briefly instead of pretending to have searched.
 
 If the user already supplied a research question, continue with it. Otherwise ask one concise question about their work, industry, location or agency of interest. Do not require an industry code before helping.
 

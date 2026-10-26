@@ -1,0 +1,55 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "email": "daniel@mooshworks.com",
+    "name": "Daniel Hallman",
+    "url": "https://govgazette.com"
+  },
+  "description": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
+  "extensions": {
+    "com.openai": {
+      "categories": [
+        "Productivity",
+        "Business"
+      ],
+      "displayName": "GovGazette",
+      "privacyPolicy": "https://govgazette.com/privacy",
+      "termsOfService": "https://govgazette.com/terms"
+    }
+  },
+  "homepage": "https://govgazette.com",
+  "interface": {
+    "brandColor": "#4F46E5",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "category": "Productivity",
+    "composerIcon": "./assets/icon.svg",
+    "defaultPrompt": [
+      "Find software opportunities and build a cited research brief.",
+      "Research a vendor using its official identifier.",
+      "Explain the evidence behind an exclusion match."
+    ],
+    "developerName": "Daniel Hallman",
+    "displayName": "GovGazette",
+    "logo": "./assets/icon.svg",
+    "longDescription": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
+    "privacyPolicyURL": "https://govgazette.com/privacy",
+    "shortDescription": "Find federal contracting opportunities, research awards and vendors, and review exclusi...",
+    "termsOfServiceURL": "https://govgazette.com/terms",
+    "websiteURL": "https://govgazette.com"
+  },
+  "keywords": [
+    "government-contracts",
+    "procurement",
+    "research"
+  ],
+  "license": "MIT",
+  "mcpServers": "./.mcp.json",
+  "name": "govgazette",
+  "repository": "https://github.com/mooshee/govgazette-mcp",
+  "skills": "./skills/",
+  "version": "1.3.2"
+}

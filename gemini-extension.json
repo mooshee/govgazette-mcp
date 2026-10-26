@@ -1,11 +1,11 @@
 {
-  "name": "govgazette",
-  "version": "1.3.1",
-  "description": "Find federal opportunities, research awards and vendors, and review exclusion evidence with official sources.",
+  "contextFileName": "research-instructions.md",
+  "description": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
   "mcpServers": {
     "govgazette": {
       "httpUrl": "https://govgazette.com/mcp"
     }
   },
-  "contextFileName": "research-instructions.md"
+  "name": "govgazette",
+  "version": "1.3.2"
 }
