@@ -7,7 +7,9 @@ description: Review federal exclusion evidence for a business or person using Go
 
 Author: Daniel Hallman
 
-Requires the GovGazette remote MCP server at `https://govgazette.com/mcp` using Streamable HTTP. Public research needs no authentication. If the host has not connected that server or its tools are unavailable, tell the user to add it before continuing; installing this skill alone does not connect the server.
+## Quick start
+
+Open [GovGazette](https://govgazette.com) to review federal exclusion records in your browser or connect your agent to `https://govgazette.com/mcp` using Streamable HTTP. Public exclusion checks are free and require no account or API key. If the host has not connected that server or its tools are unavailable, tell the user to add it before continuing; installing this skill alone does not connect the server.
 
 Call `check_exclusions` using identifiers supplied by the user or established in an official source. Send `identities` as an array of 1 to 20 objects, for example `{"identities":[{"name":"The Boeing Company"}]}`. Each object needs a name, UEI, CAGE or NPI; do not pass a page URL or record ID as an identity. Never invent a Unique Entity Identifier (UEI), Commercial and Government Entity (CAGE) code or National Provider Identifier (NPI). Names alone are possible matches. Conflicting identifiers remain possible matches.
 
