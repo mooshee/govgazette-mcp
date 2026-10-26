@@ -29,6 +29,7 @@ When editing a configuration file, merge the GovGazette entry with your existing
 Install the plugin:
 
 ```sh
+/plugin marketplace add mooshee/govgazette-mcp
 claude plugin marketplace add mooshee/govgazette-mcp
 claude plugin install govgazette@govgazette
 ```
@@ -187,7 +188,7 @@ Merge this into `.cursor/mcp.json`, then enable the server:
 <details>
 <summary><strong>GitHub Copilot / VS Code</strong></summary>
 
-Merge this into `.vscode/mcp.json`, start the server, and enable its tools in agent mode:
+[1-Click Install in VS Code](https://insiders.vscode.dev/redirect/mcp/install?name=govgazette&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fgovgazette.com%2Fmcp%22%7D) or merge this into `.vscode/mcp.json`, start the server, and enable its tools in agent mode:
 
 ```json
 {
@@ -439,6 +440,18 @@ Enable it for your chat and select a model that supports tools. For Ollama model
 In the IDE tools panel, add a server named **GovGazette**, choose **HTTP**, enter `https://govgazette.com/mcp`, and save. Review and enable the tools you want to use.
 
 [Provider setup guide](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/mcp-ide.html)
+
+</details>
+
+<details>
+<summary><strong>Vercel Skills (<code>skills.sh</code>) &amp; ClawHub</strong></summary>
+
+```sh
+npx -y skills add mooshee/govgazette-mcp
+clawhub install govgazette
+clawhub install contract-research
+clawhub install exclusion-review
+```
 
 </details>
 
