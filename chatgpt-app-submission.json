@@ -1,0 +1,339 @@
+{
+  "$schema": "https://developers.openai.com/plugins/schemas/chatgpt-app-submission.v1.json",
+  "app_info": {
+    "category": "BUSINESS",
+    "contact_email": "daniel@mooshworks.com",
+    "description": "Find federal contract opportunities, research awards and vendors, and review exclusion records with source links and dates. Public research is free and requires no account or API key. GovGazette is independent of the U.S. government.",
+    "display_name": "GovGazette",
+    "homepage": "https://govgazette.com",
+    "privacy_policy_url": "https://govgazette.com/privacy",
+    "subtitle": "Research federal contracts",
+    "terms_of_service_url": "https://govgazette.com/terms"
+  },
+  "mcp_config": {
+    "transport": "streamable-http",
+    "url": "https://govgazette.com/mcp"
+  },
+  "negative_test_cases": [
+    {
+      "description": "Unsupported proposal submission",
+      "expected_output": "Do not invoke GovGazette tools or claim submission: filing bids and uploading proposal documents are unsupported. Explain that the user must use the issuing agency's submission process.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "user_prompt": "Submit my proposal to SAM.gov and tell the contracting officer that our bid is filed."
+    },
+    {
+      "description": "Unsupported vendor registration",
+      "expected_output": "Do not invoke GovGazette tools or request credentials: vendor registration and issuing a new UEI are unsupported. Explain that registration must be completed through the official service.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "user_prompt": "Register my company in SAM.gov and issue us a new UEI."
+    },
+    {
+      "description": "Unsupported contract award",
+      "expected_output": "Do not invoke GovGazette tools or claim an award: executing contracts, issuing purchase orders and obligating funds are unsupported. Explain this limit without attempting a government transaction.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "user_prompt": "Award a federal contract to my company and issue the purchase order now."
+    }
+  ],
+  "positive_test_cases": [
+    {
+      "description": "Find federal software contracting opportunities by NAICS code",
+      "expected_output": "Matching notices with official identifiers, source dates, GovGazette detail links, and issuing-source links. An older source snapshot is not presented as live data.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "search_opportunities",
+      "user_prompt": "Find federal software contracting opportunities in NAICS 541512. Show official identifiers, source dates, and source links."
+    },
+    {
+      "description": "Build a sourced opportunity brief",
+      "expected_output": "A brief grounded in returned opportunity and linked source evidence. Missing fields are identified rather than inferred.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "search_opportunities, research_opportunity",
+      "user_prompt": "Find a federal software opportunity and build a brief for one result. Include its identifier, issuing agency, source date, deadlines if present, and official notice link."
+    },
+    {
+      "description": "Research an award and its vendor",
+      "expected_output": "An award and vendor summary with official identifiers, dated source links, and readable classification labels linked to reference pages.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "search, detail",
+      "user_prompt": "Find a federal IT award in GovGazette. Identify the awardee, show the award source and date, and explain any NAICS code with its label and linked reference page."
+    },
+    {
+      "description": "Check exclusion evidence for a vendor",
+      "expected_output": "A dated result that distinguishes exact identifier matches from name-only possible matches. A no-match result is not described as clearance or eligibility.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "check_exclusions",
+      "user_prompt": "Check the name The Boeing Company against the latest available GovGazette exclusions snapshot. Explain any match level, source date, and what a no-match result does and does not mean."
+    },
+    {
+      "description": "Check source freshness before relying on records",
+      "expected_output": "Actual retained source dates and coverage notes, including any stale or incomplete snapshot. An older snapshot is not presented as live government data.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "freshness",
+      "user_prompt": "What are the source dates and coverage limits for GovGazette opportunities, awards, and exclusions? Tell me which snapshots are dated or incomplete."
+    }
+  ],
+  "review_instructions": {
+    "data_safety_attestation": "This MCP server does not retain user query data for model training.",
+    "test_account_credentials": "Public research requires no credentials. The public connection exposes 11 research tools. Private saved-search tools listed below require a separate authenticated workspace and the user's request.",
+    "video_walkthrough_url": "https://raw.githubusercontent.com/mooshee/govgazette-mcp/main/media/chatgpt-demo.mp4"
+  },
+  "schema_version": 1,
+  "test_cases": [
+    {
+      "description": "Find federal software contracting opportunities by NAICS code",
+      "expected_output": "Matching notices with official identifiers, source dates, GovGazette detail links, and issuing-source links. An older source snapshot is not presented as live data.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "search_opportunities",
+      "user_prompt": "Find federal software contracting opportunities in NAICS 541512. Show official identifiers, source dates, and source links."
+    },
+    {
+      "description": "Build a sourced opportunity brief",
+      "expected_output": "A brief grounded in returned opportunity and linked source evidence. Missing fields are identified rather than inferred.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "search_opportunities, research_opportunity",
+      "user_prompt": "Find a federal software opportunity and build a brief for one result. Include its identifier, issuing agency, source date, deadlines if present, and official notice link."
+    },
+    {
+      "description": "Research an award and its vendor",
+      "expected_output": "An award and vendor summary with official identifiers, dated source links, and readable classification labels linked to reference pages.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "search, detail",
+      "user_prompt": "Find a federal IT award in GovGazette. Identify the awardee, show the award source and date, and explain any NAICS code with its label and linked reference page."
+    },
+    {
+      "description": "Check exclusion evidence for a vendor",
+      "expected_output": "A dated result that distinguishes exact identifier matches from name-only possible matches. A no-match result is not described as clearance or eligibility.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "check_exclusions",
+      "user_prompt": "Check the name The Boeing Company against the latest available GovGazette exclusions snapshot. Explain any match level, source date, and what a no-match result does and does not mean."
+    },
+    {
+      "description": "Check source freshness before relying on records",
+      "expected_output": "Actual retained source dates and coverage notes, including any stale or incomplete snapshot. An older snapshot is not presented as live government data.",
+      "expected_output_url": null,
+      "file_attachment_urls": null,
+      "tools_triggered": "freshness",
+      "user_prompt": "What are the source dates and coverage limits for GovGazette opportunities, awards, and exclusions? Tell me which snapshots are dated or incomplete."
+    }
+  ],
+  "tools": {
+    "check_exclusions": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Compares supplied names or identifiers with the retained active exclusion snapshot and returns match evidence without changing records."
+      }
+    },
+    "create_saved_search": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Creates a new row without deleting or overwriting existing searches.",
+        "open_world_justification": "Scoped to the authenticated private GovGazette workspace; does not send to arbitrary external recipients.",
+        "read_only_justification": "Adds one saved search to the authenticated workspace after explicit user intent."
+      }
+    },
+    "delete_saved_search": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Permanently removes that search and its events and revokes its feed.",
+        "open_world_justification": "Scoped to the authenticated private GovGazette workspace; does not send to arbitrary external recipients.",
+        "read_only_justification": "Deletes one owned saved search, its baseline and retained events after explicit user intent."
+      }
+    },
+    "delete_saved_search_workspace": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Permanently removes all owned searches, baselines, retained events and feed capabilities, but not the login account.",
+        "open_world_justification": "Scoped to the authenticated private GovGazette workspace; does not send to arbitrary external recipients.",
+        "read_only_justification": "Deletes the authenticated saved-search workspace after explicit intent to delete the entire workspace."
+      }
+    },
+    "detail": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Retrieves one retained public record by collection and identifier without changing records."
+      }
+    },
+    "document": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Returns a bounded portion of retained official record text without fetching arbitrary URLs or changing records."
+      }
+    },
+    "exclusion_changes": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Compares two retained exclusion snapshots and returns observed differences without changing either snapshot."
+      }
+    },
+    "exclusion_context": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Retrieves a retained exclusion, its agency explanation, and source references without changing records."
+      }
+    },
+    "explain_match": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Computes primary-industry overlap between a retained vendor and opportunity without changing either record."
+      }
+    },
+    "freshness": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Reports retained source dates, coverage, counts, and provenance without changing publication state."
+      }
+    },
+    "get_saved_search_events": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not remove events or modify searches.",
+        "open_world_justification": "Scoped to the authenticated private GovGazette workspace; does not send to arbitrary external recipients.",
+        "read_only_justification": "Reads bounded retained events for one search owned by the authenticated workspace."
+      }
+    },
+    "list_saved_searches": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Cannot remove searches, events or feed links.",
+        "open_world_justification": "Scoped to the authenticated private GovGazette workspace; does not send to arbitrary external recipients.",
+        "read_only_justification": "Reads only searches owned by the authenticated workspace without modifying product state."
+      }
+    },
+    "research_opportunity": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Builds a brief from retained opportunity and award evidence without changing records or initiating a workflow."
+      }
+    },
+    "rotate_saved_search_feed": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Invalidates the prior private feed link; lost responses must not be automatically retried.",
+        "open_world_justification": "Scoped to the authenticated private GovGazette workspace; does not send to arbitrary external recipients.",
+        "read_only_justification": "Replaces the owned search's feed capability after explicit user intent."
+      }
+    },
+    "search": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Queries the retained public record corpus and returns matching results without changing records."
+      }
+    },
+    "search_exclusions": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Filters retained active exclusion records and returns a generation-pinned page without changing records."
+      }
+    },
+    "search_opportunities": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Only retrieves or computes public evidence and cannot delete, overwrite, or revoke data.",
+        "open_world_justification": "Queries a public corpus spanning many external agencies and entities rather than a bounded private workspace.",
+        "read_only_justification": "Filters retained federal opportunity records and returns matching notices without changing records."
+      }
+    }
+  }
+}

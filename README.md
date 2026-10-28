@@ -9,13 +9,21 @@ Find federal opportunities, research awards and vendors, and review exclusion ev
 
 [Watch a short ChatGPT demo](media/chatgpt-demo.mp4) showing source-backed opportunity research.
 
+## Quick start
+
+1. Open [GovGazette](https://govgazette.com) to browse federal notices, awards, vendors, and exclusion records.
+2. To research from an agent, follow its connection steps below.
+3. Ask for a small set of opportunities, then check the returned source dates and official links.
+
+Current package: **1.3.4**, released October 28, 2026. Read the [release notes](https://github.com/mooshee/govgazette-mcp/releases/tag/v1.3.4) for changes and upgrade instructions.
+
 ## Set up your agent
 
 Choose your agent below. For clients that ask for a server address, use **https://govgazette.com/mcp** with **Streamable HTTP** and **no authentication**.
 
 Current tools and schemas: [live MCP catalog](https://govgazette.com/api/v1/mcp/tools.json).
 
-The portable [plugin package](plugin/) includes a guided first research workflow, contract research and exclusion review. Its 17 operations are individually described in the live catalog. Public research works without an account; private saved-search operations require a separate authenticated workspace.
+The portable [plugin package](plugin/) includes a guided first research workflow, contract research and exclusion review. The live public catalog describes 11 research tools. Public research works without an account; private saved-search operations require a separate authenticated workspace.
 
 Public setup recipes are not proof of a provider-curated listing. See [distribution and review status](DISTRIBUTION.md) for verified routes and the ChatGPT publication boundary.
 

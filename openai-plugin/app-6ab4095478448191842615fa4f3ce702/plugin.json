@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "app-6ab4095478448191842615fa4f3ce702",
-  "version": "1.3.1",
-  "description": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
+  "version": "1.3.4",
+  "description": "Find federal contract opportunities, research awards and vendors, and review exclusion records with source links and dates. Public research is free and requires no account or API key. GovGazette is independent of the U.S. government.",
   "author": { "name": "DANIEL JOSEPH HALLMAN", "url": "https://govgazette.com" },
   "homepage": "https://govgazette.com",
   "repository": "https://github.com/mooshee/govgazette-mcp",
@@ -12,7 +12,7 @@
       "interface": {
         "displayName": "GovGazette",
         "shortDescription": "Research federal contracts",
-        "longDescription": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
+        "longDescription": "Find federal contract opportunities, research awards and vendors, and review exclusion records with source links and dates. Public research is free and requires no account or API key. GovGazette is independent of the U.S. government.",
         "developerName": "DANIEL JOSEPH HALLMAN",
         "category": "Business & Operations",
         "capabilities": [],
@@ -77,7 +77,7 @@
         "commerce_description": "This plugin provides federal contracting research. It does not sell products, process payments, submit bids or award contracts."
       },
       "publication": {
-        "release_notes": "Replaces the saved_searches operation multiplexer with six individually declared tools, each with its own input schema and safety annotations. All 17 model-callable operations are exposed for review. Public research and source-date coverage warnings remain available without an account."
+        "release_notes": "Version 1.3.4, October 28, 2026: clearer setup steps and research instructions. This update changes wording only; available tools and access requirements are unchanged. Public research is free and requires no account. Private saved-search actions require an authenticated workspace."
       }
     }
   }

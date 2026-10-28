@@ -4,7 +4,7 @@
     "name": "Daniel Hallman",
     "url": "https://govgazette.com"
   },
-  "description": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
+  "description": "Find federal contract opportunities, research awards and vendors, and review exclusion records with source links and dates. Public research is free and requires no account or API key. GovGazette is independent of the U.S. government.",
   "homepage": "https://govgazette.com",
   "keywords": [
     "government-contracts",
@@ -13,5 +13,5 @@
   ],
   "name": "govgazette",
   "repository": "https://github.com/mooshee/govgazette-mcp",
-  "version": "1.3.2"
+  "version": "1.3.4"
 }
