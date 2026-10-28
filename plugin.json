@@ -4,8 +4,114 @@
     "name": "Daniel Hallman",
     "url": "https://govgazette.com"
   },
-  "description": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
+  "description": "Federal contracting opportunities, award research, and SAM exclusion reviews. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government. Built by Moosh Works (https://mooshworks.com).",
+  "extensions": {
+    "com.openai": {
+      "categories": [
+        "Productivity",
+        "Business"
+      ],
+      "displayName": "GovGazette",
+      "interface": {
+        "brandColor": "#4F46E5",
+        "capabilities": [],
+        "category": "Business & Operations",
+        "composerIcon": "./assets/icon.png",
+        "defaultPrompt": [
+          "Find software opportunities and build a cited research brief.",
+          "Research a vendor using its official identifier.",
+          "Explain the evidence behind an exclusion match."
+        ],
+        "developerName": "Daniel Hallman",
+        "displayName": "GovGazette",
+        "logo": "./assets/icon.png",
+        "longDescription": "Federal contracting opportunities, award research, and SAM exclusion reviews. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government. Built by Moosh Works (https://mooshworks.com).",
+        "privacyPolicyURL": "https://govgazette.com/privacy",
+        "shortDescription": "Research federal contracts",
+        "supportURL": "https://github.com/mooshee/govgazette-mcp/issues",
+        "termsOfServiceURL": "https://govgazette.com/terms",
+        "websiteURL": "https://govgazette.com"
+      },
+      "privacyPolicy": "https://govgazette.com/privacy",
+      "publication": {
+        "release_notes": "Release v1.3.3: verified Streamable HTTP MCP tools and skills for GovGazette."
+      },
+      "review": {
+        "commerce": false,
+        "commerce_description": "GovGazette provides MCP tool execution and structured output. It does not process direct in-chat payments.",
+        "test_cases": {
+          "negative": [
+            {
+              "description": "Unsupported proposal submission",
+              "prompt": "Submit my proposal to SAM.gov and tell the contracting officer that our bid is filed."
+            },
+            {
+              "description": "Unsupported vendor registration",
+              "prompt": "Register my company in SAM.gov and issue us a new UEI."
+            },
+            {
+              "description": "Unsupported contract award",
+              "prompt": "Award a federal contract to my company and issue the purchase order now."
+            }
+          ],
+          "positive": [
+            {
+              "description": "Find federal software contracting opportunities by NAICS code",
+              "expected_behavior": "Matching notices with official identifiers, source dates, GovGazette detail links, and issuing-source links. An older source snapshot is not presented as live data.",
+              "prompt": "Find federal software contracting opportunities in NAICS 541512. Show official identifiers, source dates, and source links.",
+              "tools_triggered": "search_opportunities"
+            },
+            {
+              "description": "Build a sourced opportunity brief",
+              "expected_behavior": "A brief grounded in returned opportunity and linked source evidence. Missing fields are identified rather than inferred.",
+              "prompt": "Find a federal software opportunity and build a brief for one result. Include its identifier, issuing agency, source date, deadlines if present, and official notice link.",
+              "tools_triggered": "search_opportunities, research_opportunity"
+            },
+            {
+              "description": "Research an award and its vendor",
+              "expected_behavior": "An award and vendor summary with official identifiers, dated source links, and readable classification labels linked to reference pages.",
+              "prompt": "Find a federal IT award in GovGazette. Identify the awardee, show the award source and date, and explain any NAICS code with its label and linked reference page.",
+              "tools_triggered": "search, detail"
+            },
+            {
+              "description": "Check exclusion evidence for a vendor",
+              "expected_behavior": "A dated result that distinguishes exact identifier matches from name-only possible matches. A no-match result is not described as clearance or eligibility.",
+              "prompt": "Check the name The Boeing Company against the latest available GovGazette exclusions snapshot. Explain any match level, source date, and what a no-match result does and does not mean.",
+              "tools_triggered": "check_exclusions"
+            },
+            {
+              "description": "Check source freshness before relying on records",
+              "expected_behavior": "Actual retained source dates and coverage notes, including any stale or incomplete snapshot. An older snapshot is not presented as live government data.",
+              "prompt": "What are the source dates and coverage limits for GovGazette opportunities, awards, and exclusions? Tell me which snapshots are dated or incomplete.",
+              "tools_triggered": "freshness"
+            }
+          ]
+        }
+      },
+      "termsOfService": "https://govgazette.com/terms"
+    }
+  },
   "homepage": "https://govgazette.com",
+  "interface": {
+    "brandColor": "#4F46E5",
+    "capabilities": [],
+    "category": "Business & Operations",
+    "composerIcon": "./assets/icon.png",
+    "defaultPrompt": [
+      "Find software opportunities and build a cited research brief.",
+      "Research a vendor using its official identifier.",
+      "Explain the evidence behind an exclusion match."
+    ],
+    "developerName": "Daniel Hallman",
+    "displayName": "GovGazette",
+    "logo": "./assets/icon.png",
+    "longDescription": "Federal contracting opportunities, award research, and SAM exclusion reviews. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government. Built by Moosh Works (https://mooshworks.com).",
+    "privacyPolicyURL": "https://govgazette.com/privacy",
+    "shortDescription": "Research federal contracts",
+    "supportURL": "https://github.com/mooshee/govgazette-mcp/issues",
+    "termsOfServiceURL": "https://govgazette.com/terms",
+    "websiteURL": "https://govgazette.com"
+  },
   "keywords": [
     "government-contracts",
     "procurement",
@@ -13,5 +119,5 @@
   ],
   "name": "govgazette",
   "repository": "https://github.com/mooshee/govgazette-mcp",
-  "version": "1.3.2"
+  "version": "1.3.3"
 }

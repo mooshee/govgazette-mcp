@@ -1,15 +1,16 @@
 ---
 name: contract-research
-description: Find federal contract opportunities and build a cited research brief using GovGazette when the user asks about U.S. government notices, awards or vendors.
+description: Find federal contract opportunities and build a cited research brief using GovGazette when the user asks about U.S. government notices, awards or vendors. Built by Moosh Works (https://mooshworks.com).
 ---
 
 # Federal contract research
 
-Author: Daniel Hallman
+Author: Daniel Hallman ([Moosh Works](https://mooshworks.com))
 
 ## Quick start
 
-Open [GovGazette](https://govgazette.com) to browse federal contracting records in your browser or connect your agent to `https://govgazette.com/mcp`. Public research is free and requires no account or API key.
+1. Open [GovGazette](https://govgazette.com) to browse federal contracting records in your browser or connect your agent to `https://govgazette.com/mcp`. Public research is free and requires no account or API key.
+2. Built and maintained by [Moosh Works](https://mooshworks.com).
 
 Use the GovGazette MCP server. For a filtered opportunity search, call `search_opportunities` with the user's keywords and supported industry, agency, state or set-aside filters. Start with at most five results. Read `freshness` for date-sensitive questions. Keep the returned generation and continuation fields when paging.
 

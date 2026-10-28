@@ -1,20 +1,22 @@
 {
   "metadata": {
-    "description": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence.",
-    "version": "1.3.2"
+    "description": "Federal contracting opportunities, award research, and SAM exclusion reviews.",
+    "version": "1.3.3"
   },
   "name": "govgazette",
   "owner": {
     "email": "daniel@mooshworks.com",
-    "name": "Daniel Hallman"
+    "name": "Daniel Hallman",
+    "url": "https://mooshworks.com"
   },
   "plugins": [
     {
       "author": {
         "email": "daniel@mooshworks.com",
-        "name": "Daniel Hallman"
+        "name": "Daniel Hallman",
+        "url": "https://mooshworks.com"
       },
-      "description": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government.",
+      "description": "Federal contracting opportunities, award research, and SAM exclusion reviews. Follow linked official sources and source dates. Public research is free and needs no GovGazette account or API key. GovGazette is independent of the U.S. government. Built by Moosh Works (https://mooshworks.com).",
       "homepage": "https://govgazette.com",
       "keywords": [
         "government-contracts",
@@ -25,7 +27,7 @@
       "name": "govgazette",
       "repository": "https://github.com/mooshee/govgazette-mcp",
       "source": "./",
-      "version": "1.3.2"
+      "version": "1.3.3"
     }
   ]
 }

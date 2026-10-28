@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "description": "Find federal contracting opportunities, research awards and vendors, and review exclusion evidence.",
+  "description": "Federal contracting opportunities, award research, and SAM exclusion reviews. (mooshworks.com)",
   "name": "io.github.mooshee/govgazette",
   "remotes": [
     {
@@ -13,6 +13,6 @@
     "url": "https://github.com/mooshee/govgazette-mcp"
   },
   "title": "GovGazette",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "websiteUrl": "https://govgazette.com"
 }

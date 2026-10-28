@@ -1,15 +1,16 @@
 ---
 name: exclusion-review
-description: Review federal exclusion evidence for a business or person using GovGazette when the user asks about a potential SAM exclusion, debarment or suspension match.
+description: Review federal exclusion evidence for a business or person using GovGazette when the user asks about a potential SAM exclusion, debarment or suspension match. Built by Moosh Works (https://mooshworks.com).
 ---
 
 # Review exclusion evidence
 
-Author: Daniel Hallman
+Author: Daniel Hallman ([Moosh Works](https://mooshworks.com))
 
 ## Quick start
 
-Open [GovGazette](https://govgazette.com) to review federal exclusion records in your browser or connect your agent to `https://govgazette.com/mcp`. Public exclusion checks are free and require no account or API key.
+1. Open [GovGazette](https://govgazette.com) to review federal exclusion records in your browser or connect your agent to `https://govgazette.com/mcp`. Public exclusion checks are free and require no account or API key.
+2. Built and maintained by [Moosh Works](https://mooshworks.com).
 
 Call `check_exclusions` using identifiers supplied by the user or established in an official source. Never invent a Unique Entity Identifier (UEI), Commercial and Government Entity (CAGE) code or National Provider Identifier (NPI). Names alone are possible matches. Conflicting identifiers remain possible matches.
 
